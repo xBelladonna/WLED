@@ -20,6 +20,10 @@
 #ifdef USERMOD_SENSORSTOMQTT
 #include "usermod_v2_SensorsToMqtt.h"
 #endif
+// BME280 v2 usermod. Define "USERMOD_BME280" in my_config.h
+#ifdef USERMOD_BME280
+#include "../usermods/BME280_v2/usermod_bme280.h"
+#endif
 
 void registerUsermods()
 {
@@ -38,5 +42,8 @@ void registerUsermods()
 #endif
 #ifdef USERMOD_SENSORSTOMQTT
   usermods.add(new UserMod_SensorsToMQTT());
+#endif
+#ifdef USERMOD_BME280
+  usermods.add(new UsermodBME280());
 #endif
 }
